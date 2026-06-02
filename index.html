@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sarosh Kumar — Machine Learning Portfolio</title>
+<meta name="description" content="A machine learning portfolio documenting the journey of building an HR Employee Attrition Predictor — from EDA to ensembles, evaluation and interpretation." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ░░ NAV ░░ -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand">SK<span>.</span></a>
+  <nav class="nav-links">
+    <a href="#journey">Journey</a>
+    <a href="#project">Project</a>
+    <a href="#concepts">What I Learned</a>
+    <a href="#results">Results</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero" id="top">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Machine Learning · Portfolio</p>
+    <h1>Turning data into decisions.</h1>
+    <p class="lead">
+      I'm <strong>Sarosh Kumar</strong>. This portfolio documents my journey through machine learning —
+      built around a complete, end-to-end project: an
+      <strong>HR Employee Attrition Predictor</strong> that learns <em>who is likely to leave</em>,
+      <em>why</em>, and <em>what to do about it</em>.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#project">Explore the project</a>
+      <a class="btn btn-ghost" href="https://github.com/saroshkumar-ops" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="num">6</span><span class="lbl">models trained</span></div>
+      <div><span class="num">88.4%</span><span class="lbl">best accuracy</span></div>
+      <div><span class="num">0.82</span><span class="lbl">best ROC-AUC</span></div>
+      <div><span class="num">1,470</span><span class="lbl">employees analysed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ JOURNEY ░░ -->
+<section class="section" id="journey">
+  <div class="section-head">
+    <span class="kicker">01 — The Journey</span>
+    <h2>From raw data to a reasoning system</h2>
+    <p class="sub">Every step below was a concept learned in the course and then applied for real on the IBM HR dataset.</p>
+  </div>
+
+  <ol class="timeline">
+    <li>
+      <span class="dot"></span>
+      <h3>Understanding the data</h3>
+      <p>Loaded 1,470 employee records, dropped non-informative columns, handled the target, and confirmed a clean dataset with a meaningful <strong>class imbalance</strong> (~16% leavers) — the single fact that shaped every decision afterwards.</p>
+    </li>
+    <li>
+      <span class="dot"></span>
+      <h3>Exploratory Data Analysis</h3>
+      <p>Twelve visual stories — overtime, income, age, job role, marital status, satisfaction, tenure — to find the <em>real drivers</em> of attrition before modelling anything.</p>
+    </li>
+    <li>
+      <span class="dot"></span>
+      <h3>Preprocessing — scaling &amp; normalizing</h3>
+      <p>Learned why <strong>feature scaling</strong> matters: standardizing features let Logistic Regression converge in 18 iterations instead of failing after 1,000, and made its coefficients interpretable. Compared standardization vs min-max vs row-normalization and chose the right tool.</p>
+    </li>
+    <li>
+      <span class="dot"></span>
+      <h3>Modelling — from one tree to ensembles</h3>
+      <p>Logistic Regression → Decision Tree → Random Forest, then the ensemble family: <strong>Bagging</strong> (parallel, variance↓), <strong>Boosting</strong> (sequential, bias↓), and <strong>Stacking</strong> (a learned blend of all three).</p>
+    </li>
+    <li>
+      <span class="dot"></span>
+      <h3>Evaluation — beyond accuracy</h3>
+      <p>Confusion matrices, precision/recall, F1, ROC-AUC, and cross-validation. Learned that on imbalanced data <em>accuracy lies</em> — and that the threshold you classify at is a design decision, not a default.</p>
+    </li>
+    <li>
+      <span class="dot"></span>
+      <h3>Interpretation &amp; action</h3>
+      <p>Turned coefficients into a human-readable "why", and a 13-rule engine into personalised retention recommendations. A model is only useful when someone can act on it.</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ░░ PROJECT ░░ -->
+<section class="section alt" id="project">
+  <div class="section-head">
+    <span class="kicker">02 — Flagship Project</span>
+    <h2>HR Employee Attrition Predictor</h2>
+    <p class="sub">A complete Python ML system on the IBM HR Analytics dataset — data in, decisions out.</p>
+  </div>
+
+  <div class="project-grid">
+    <article class="card span2">
+      <h3>What it does</h3>
+      <p>Loads and preprocesses the data, trains and tunes six models, evaluates them with a full metric suite, generates every EDA and comparison chart, then lets a user enter <em>any</em> employee — manually or from a CSV — to predict whether they'll <strong>leave or stay</strong> and receive prioritised, personalised HR actions to retain them.</p>
+      <div class="tags">
+        <span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>matplotlib</span><span>seaborn</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Key insight</h3>
+      <p><strong>Overtime</strong> is the strongest signal — employees who work overtime leave at <strong>30.5%</strong> vs <strong>10.4%</strong>. Low pay, single status, no stock options and early tenure compound the risk.</p>
+    </article>
+
+    <figure class="card shot">
+      <img src="assets/eda_figure1_overview.png" alt="EDA overview: attrition patterns across overtime, department, age, income and satisfaction" loading="lazy" />
+      <figcaption>EDA — dataset overview &amp; attrition patterns</figcaption>
+    </figure>
+    <figure class="card shot">
+      <img src="assets/feature_importance.png" alt="Random Forest feature importance ranking" loading="lazy" />
+      <figcaption>Which factors matter most (Random Forest)</figcaption>
+    </figure>
+    <figure class="card shot span2">
+      <img src="assets/model_comparison.png" alt="Model performance comparison and confusion matrices" loading="lazy" />
+      <figcaption>Model performance comparison &amp; confusion matrices</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ░░ CONCEPTS ░░ -->
+<section class="section" id="concepts">
+  <div class="section-head">
+    <span class="kicker">03 — What I Learned</span>
+    <h2>Concepts, applied — not just studied</h2>
+    <p class="sub">Each card is a course topic I implemented and reasoned about in the project.</p>
+  </div>
+
+  <div class="concept-grid">
+    <div class="concept"><h4>Data Preprocessing</h4><p>Cleaning, label encoding, train/test split with stratification to preserve class ratios.</p></div>
+    <div class="concept"><h4>Feature Scaling</h4><p>Standardization for distance/gradient models; why trees don't need it. Convergence and interpretability gains measured.</p></div>
+    <div class="concept"><h4>Normalization</h4><p>Min-max vs z-score vs L2 — and why row-normalization is wrong for tabular data.</p></div>
+    <div class="concept"><h4>Logistic Regression</h4><p>A calibrated, interpretable linear baseline — and the project's most precise model.</p></div>
+    <div class="concept"><h4>Decision Trees</h4><p>Pre-pruning with depth and leaf constraints to fight overfitting.</p></div>
+    <div class="concept"><h4>Random Forest</h4><p>Bagged, feature-randomised trees for stable predictions and importance scores.</p></div>
+    <div class="concept"><h4>Bagging</h4><p>Bootstrap aggregation — parallel trees that cut variance.</p></div>
+    <div class="concept"><h4>Boosting</h4><p>Sequential trees that correct prior errors — the best recall, catching ~70% of leavers.</p></div>
+    <div class="concept"><h4>Stacking</h4><p>A meta-model that blends base learners — the best ROC-AUC of the lineup.</p></div>
+    <div class="concept"><h4>Confusion Matrix</h4><p>TN / FP / FN / TP — seeing <em>which</em> errors a model makes, not just how many.</p></div>
+    <div class="concept"><h4>Metrics &amp; F1</h4><p>Precision, recall, F1, ROC-AUC — choosing the metric that fits the business cost.</p></div>
+    <div class="concept"><h4>Threshold &amp; Imbalance</h4><p>Tuning the decision threshold to 0.40 to lift recall and F1 on imbalanced data.</p></div>
+    <div class="concept"><h4>Cross-Validation</h4><p>5-fold GridSearchCV for honest, leakage-free hyperparameter tuning.</p></div>
+    <div class="concept"><h4>Model Interpretation</h4><p>Coefficient × value contributions to explain every individual prediction.</p></div>
+  </div>
+</section>
+
+<!-- ░░ RESULTS ░░ -->
+<section class="section alt" id="results">
+  <div class="section-head">
+    <span class="kicker">04 — Results</span>
+    <h2>Six models, measured honestly</h2>
+    <p class="sub">Evaluated at an imbalance-adjusted 0.40 threshold. F1 and ROC-AUC tell the real story — not accuracy alone.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table class="results">
+      <thead>
+        <tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>ROC-AUC</th><th>Strength</th></tr>
+      </thead>
+      <tbody>
+        <tr class="best"><td>Logistic Regression</td><td>0.874</td><td>0.625</td><td>0.532</td><td>0.575</td><td>0.811</td><td>Interpretable &amp; precise</td></tr>
+        <tr class="best"><td>Stacking Ensemble</td><td>0.884</td><td>0.697</td><td>0.489</td><td>0.575</td><td>0.820</td><td>Best AUC &amp; accuracy</td></tr>
+        <tr><td>Gradient Boosting</td><td>0.704</td><td>0.328</td><td>0.809</td><td>0.466</td><td>0.814</td><td>Best recall — catches leavers</td></tr>
+        <tr><td>Random Forest</td><td>0.806</td><td>0.424</td><td>0.596</td><td>0.496</td><td>0.800</td><td>Stable, strong importances</td></tr>
+        <tr><td>Bagging Ensemble</td><td>0.772</td><td>0.378</td><td>0.660</td><td>0.481</td><td>0.784</td><td>Variance reduction</td></tr>
+        <tr><td>Decision Tree</td><td>0.694</td><td>0.269</td><td>0.532</td><td>0.357</td><td>0.696</td><td>Simple &amp; explainable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="takeaways">
+    <div class="takeaway"><h4>Accuracy isn't enough</h4><p>An 84% "predict everyone stays" baseline looks fine but catches zero leavers. Our model adds <strong>+4.4 real points</strong> while genuinely flagging at-risk staff.</p></div>
+    <div class="takeaway"><h4>Trade-offs are choices</h4><p>Lowering the threshold trades a little accuracy for more recall — the right call when a missed leaver costs far more than a false alarm.</p></div>
+    <div class="takeaway"><h4>The best model is a blend</h4><p>Stacking combined the strengths of all three base learners to top both ROC-AUC and accuracy.</p></div>
+  </div>
+</section>
+
+<!-- ░░ CONTACT ░░ -->
+<section class="section contact" id="contact">
+  <div class="section-head">
+    <span class="kicker">05 — Contact</span>
+    <h2>Let's talk data</h2>
+    <p class="sub">Open to ML, data science and analytics opportunities.</p>
+  </div>
+  <div class="contact-actions">
+    <a class="btn btn-primary" href="mailto:bldeiqacgf2025@gmail.com">Email me</a>
+    <a class="btn btn-ghost" href="https://github.com/saroshkumar-ops" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Built by Sarosh Kumar · Machine Learning Portfolio · <span id="year"></span></p>
+  <p class="muted">HR Employee Attrition Predictor — IBM HR Analytics dataset.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
