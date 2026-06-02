@@ -18,9 +18,9 @@
   <nav class="nav-links">
     <a href="#journey">Journey</a>
     <a href="#project">Project</a>
+    <a href="#data">Data &amp; Method</a>
     <a href="#concepts">What I Learned</a>
     <a href="#results">Results</a>
-    <a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -158,10 +158,102 @@
   <span class="lightbox-caption" id="lbCaption"></span>
 </div>
 
+<!-- ░░ DATA & METHODOLOGY ░░ -->
+<section class="section" id="data">
+  <div class="section-head">
+    <span class="kicker">03 — Data &amp; Methodology</span>
+    <h2>Where the data came from &amp; how it was prepared</h2>
+    <p class="sub">Good models start with honest data work. Here's exactly how the dataset was sourced, cleaned, and made model-ready.</p>
+  </div>
+
+  <div class="data-grid">
+    <article class="card data-source span2">
+      <h3>📊 The dataset</h3>
+      <p>
+        The project uses the <strong>IBM HR Analytics Employee Attrition &amp; Performance</strong> dataset —
+        a well-known, openly available dataset published by IBM Watson Analytics and widely distributed via
+        <strong>Kaggle</strong>. It is a <em>fictional</em> dataset created by IBM data scientists to study the
+        factors behind employee attrition, which makes it ideal for learning without privacy concerns.
+      </p>
+      <ul class="facts">
+        <li><span>Rows</span><strong>1,470 employees</strong></li>
+        <li><span>Original columns</span><strong>35 attributes</strong></li>
+        <li><span>Target</span><strong>Attrition — Yes / No</strong></li>
+        <li><span>Class balance</span><strong>~16% left · ~84% stayed</strong></li>
+        <li><span>Missing values</span><strong>None (clean dataset)</strong></li>
+        <li><span>File</span><strong>WA_Fn-UseC_-HR-Employee-Attrition.csv</strong></li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>🎯 The target</h3>
+      <p>Each employee is labelled <strong>Attrition = Yes</strong> (left the company) or <strong>No</strong> (stayed). This was mapped to <code>1 / 0</code> so the models could learn a binary classification: <em>will this person leave?</em></p>
+    </article>
+
+    <article class="card">
+      <h3>⚖️ The imbalance challenge</h3>
+      <p>Only about 1 in 6 employees actually left. This imbalance shaped every later choice — from balanced class weights to a tuned decision threshold — because a naïve model could score 84% accuracy by simply predicting "nobody leaves".</p>
+    </article>
+  </div>
+
+  <h3 class="steps-title">The preprocessing pipeline, step by step</h3>
+  <ol class="pipeline">
+    <li>
+      <span class="step-no">1</span>
+      <div>
+        <h4>Load &amp; inspect</h4>
+        <p>Read the CSV into a pandas DataFrame (1,470 × 35), checked shape, data types, and confirmed there were <strong>zero missing values</strong> — so no imputation was needed.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-no">2</span>
+      <div>
+        <h4>Drop non-informative columns</h4>
+        <p>Removed columns that carry no predictive signal: <code>EmployeeNumber</code>, <code>EmployeeCount</code>, <code>Over18</code>, and <code>StandardHours</code> (all constant or just identifiers), plus low-signal rate fields (<code>MonthlyRate</code>, <code>DailyRate</code>, <code>HourlyRate</code>, <code>PerformanceRating</code>) — keeping <strong>26 meaningful features</strong>.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-no">3</span>
+      <div>
+        <h4>Encode the target</h4>
+        <p>Mapped <code>Attrition</code> from <code>"Yes"/"No"</code> to <code>1/0</code> so it could be used as a numeric classification label.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-no">4</span>
+      <div>
+        <h4>Encode categorical features</h4>
+        <p>Categorical columns (e.g. <code>Department</code>, <code>JobRole</code>, <code>MaritalStatus</code>, <code>OverTime</code>) were converted to numbers with <strong>Label Encoding</strong>, and the fitted encoders were saved so any new employee can be encoded identically at prediction time.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-no">5</span>
+      <div>
+        <h4>Train / test split</h4>
+        <p>Split 80% train / 20% test using <strong>stratified sampling</strong>, which preserves the ~16% attrition ratio in both sets so the test score reflects real-world balance.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-no">6</span>
+      <div>
+        <h4>Feature scaling</h4>
+        <p>Applied <strong>StandardScaler</strong> (mean 0, std 1), <em>fitted only on the training set</em> to avoid leakage. This was essential for Logistic Regression — it cut training from a non-converging 1,000 iterations down to 18 and made coefficients comparable. Tree-based models were fed the raw, unscaled features since they're scale-invariant.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-no">7</span>
+      <div>
+        <h4>Statistics for recommendations</h4>
+        <p>Computed per-feature averages for employees who stayed vs left. These power the system's explanation layer — e.g. <em>"this salary is $2,000 below the average of retained employees."</em></p>
+      </div>
+    </li>
+  </ol>
+</section>
+
 <!-- ░░ CONCEPTS ░░ -->
 <section class="section" id="concepts">
   <div class="section-head">
-    <span class="kicker">03 — What I Learned</span>
+    <span class="kicker">04 — What I Learned</span>
     <h2>Concepts, applied — not just studied</h2>
     <p class="sub">Each card is a course topic I implemented and reasoned about in the project.</p>
   </div>
@@ -187,7 +279,7 @@
 <!-- ░░ RESULTS ░░ -->
 <section class="section alt" id="results">
   <div class="section-head">
-    <span class="kicker">04 — Results</span>
+    <span class="kicker">05 — Results</span>
     <h2>Six models, measured honestly</h2>
     <p class="sub">Evaluated at an imbalance-adjusted 0.40 threshold. F1 and ROC-AUC tell the real story — not accuracy alone.</p>
   </div>
@@ -212,19 +304,6 @@
     <div class="takeaway"><h4>Accuracy isn't enough</h4><p>An 84% "predict everyone stays" baseline looks fine but catches zero leavers. Our model adds <strong>+4.4 real points</strong> while genuinely flagging at-risk staff.</p></div>
     <div class="takeaway"><h4>Trade-offs are choices</h4><p>Lowering the threshold trades a little accuracy for more recall — the right call when a missed leaver costs far more than a false alarm.</p></div>
     <div class="takeaway"><h4>The best model is a blend</h4><p>Stacking combined the strengths of all three base learners to top both ROC-AUC and accuracy.</p></div>
-  </div>
-</section>
-
-<!-- ░░ CONTACT ░░ -->
-<section class="section contact" id="contact">
-  <div class="section-head">
-    <span class="kicker">05 — Contact</span>
-    <h2>Let's talk data</h2>
-    <p class="sub">Open to ML, data science and analytics opportunities.</p>
-  </div>
-  <div class="contact-actions">
-    <a class="btn btn-primary" href="mailto:bldeiqacgf2025@gmail.com">Email me</a>
-    <a class="btn btn-ghost" href="https://github.com/saroshkumar-ops" target="_blank" rel="noopener">GitHub ↗</a>
   </div>
 </section>
 
