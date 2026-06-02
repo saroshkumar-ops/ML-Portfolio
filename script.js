@@ -1,9 +1,59 @@
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ── Scroll progress bar + back-to-top ──
+const progress = document.getElementById('progress');
+const toTop = document.getElementById('toTop');
+function onScroll() {
+  const h = document.documentElement;
+  const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+  if (progress) progress.style.width = (scrolled * 100) + '%';
+  if (toTop) toTop.classList.toggle('show', h.scrollTop > 600);
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+toTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── Mobile nav toggle ──
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle?.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navToggle.classList.remove('open');
+  navLinks.classList.remove('open');
+}));
+
+// ── Count-up hero stats ──
+const counters = document.querySelectorAll('.num[data-count]');
+const cio = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseFloat(el.dataset.count);
+    const decimals = (el.dataset.count.split('.')[1] || '').length;
+    const suffix = el.dataset.suffix || '';
+    const comma = el.dataset.comma === '1';
+    const dur = 1100, t0 = performance.now();
+    function tick(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      let val = (target * eased).toFixed(decimals);
+      if (comma) val = Number(val).toLocaleString('en-US');
+      el.textContent = val + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => cio.observe(c));
+
 // Reveal-on-scroll for sections/cards
 const revealEls = document.querySelectorAll(
-  '.timeline li, .card, .concept, .takeaway, .section-head, .table-wrap, .eda-card, .insight-block, .rec, .pipeline li'
+  '.timeline li, .card, .concept, .takeaway, .section-head, .table-wrap, .eda-card, .insight-block, .rec, .pipeline li, .flow-step, .me, .about-text, .skills'
 );
 revealEls.forEach(el => el.classList.add('reveal'));
 

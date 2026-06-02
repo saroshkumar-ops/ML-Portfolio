@@ -12,25 +12,31 @@
 </head>
 <body>
 
+<!-- ░░ SCROLL PROGRESS ░░ -->
+<div class="scroll-progress" id="progress"></div>
+
 <!-- ░░ NAV ░░ -->
 <header class="nav" id="nav">
   <a href="#top" class="brand">SK<span>.</span></a>
-  <nav class="nav-links">
-    <a href="#journey">Journey</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about">About</a>
     <a href="#project">Project</a>
     <a href="#data">Data</a>
     <a href="#eda">Findings</a>
     <a href="#results">Results</a>
+    <a href="#how">How</a>
     <a href="#insights">Action</a>
   </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </header>
 
 <!-- ░░ HERO ░░ -->
 <section class="hero" id="top">
+  <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <p class="eyebrow">Machine Learning · Portfolio</p>
-    <h1>Turning data into decisions.</h1>
+    <p class="eyebrow"><span class="pulse"></span> Machine Learning · Portfolio · 2026</p>
+    <h1>Turning data into <span class="grad">decisions</span>.</h1>
     <p class="lead">
       I'm <strong>Sarosh Kumar</strong>. This portfolio documents my journey through machine learning —
       built around a complete, end-to-end project: an
@@ -42,11 +48,36 @@
       <a class="btn btn-ghost" href="https://github.com/saroshkumar-ops" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
     <div class="hero-stats">
-      <div><span class="num">6</span><span class="lbl">models trained</span></div>
-      <div><span class="num">88.4%</span><span class="lbl">best accuracy</span></div>
-      <div><span class="num">0.82</span><span class="lbl">best ROC-AUC</span></div>
-      <div><span class="num">1,470</span><span class="lbl">employees analysed</span></div>
+      <div><span class="num" data-count="6">6</span><span class="lbl">models trained</span></div>
+      <div><span class="num" data-count="88.4" data-suffix="%">88.4%</span><span class="lbl">best accuracy</span></div>
+      <div><span class="num" data-count="0.82">0.82</span><span class="lbl">best ROC-AUC</span></div>
+      <div><span class="num" data-count="1470" data-comma="1">1,470</span><span class="lbl">employees analysed</span></div>
     </div>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+</section>
+
+<!-- ░░ ABOUT ░░ -->
+<section class="section" id="about">
+  <div class="about-wrap">
+    <div class="about-text">
+      <span class="kicker">00 — About</span>
+      <h2>Hi, I'm Sarosh — I build models that earn their decisions.</h2>
+      <p>I'm a student of machine learning who likes the <em>full</em> loop: messy data in, a clean decision out, and an honest explanation in between. I care less about chasing leaderboard numbers and more about asking <strong>"what does this score actually mean, and what should someone do about it?"</strong></p>
+      <p>The flagship project here — an HR attrition predictor — pushed me through every stage of the ML workflow: data cleaning, EDA, encoding and scaling, training and comparing six models, evaluating them honestly on imbalanced data, and turning the output into recommendations a human can act on.</p>
+      <div class="about-meta">
+        <div><span class="am-k">Focus</span><span class="am-v">Applied ML &amp; Data Science</span></div>
+        <div><span class="am-k">Approach</span><span class="am-v">Honest metrics, explainable models</span></div>
+        <div><span class="am-k">Currently</span><span class="am-v">Building &amp; learning</span></div>
+      </div>
+    </div>
+    <aside class="skills">
+      <h3>Toolbox</h3>
+      <div class="skill-group"><span class="sg-label">Languages</span><div class="chips"><span>Python</span><span>SQL</span></div></div>
+      <div class="skill-group"><span class="sg-label">ML &amp; Data</span><div class="chips"><span>scikit-learn</span><span>pandas</span><span>NumPy</span><span>Ensembles</span><span>Cross-validation</span></div></div>
+      <div class="skill-group"><span class="sg-label">Visualisation</span><div class="chips"><span>matplotlib</span><span>seaborn</span></div></div>
+      <div class="skill-group"><span class="sg-label">Workflow</span><div class="chips"><span>Git</span><span>Jupyter</span><span>VS Code</span></div></div>
+    </aside>
   </div>
 </section>
 
@@ -390,10 +421,45 @@
   </div>
 </section>
 
+<!-- ░░ HOW IT WORKS ░░ -->
+<section class="section alt" id="how">
+  <div class="section-head">
+    <span class="kicker">07 — Under the Hood</span>
+    <h2>How a single prediction is made</h2>
+    <p class="sub">Enter one employee — manually or from a CSV — and the system runs the full chain from raw input to a recommended action.</p>
+  </div>
+
+  <div class="flow">
+    <div class="flow-step"><span class="flow-ico">📝</span><h4>1 · Input</h4><p>26 employee attributes are collected — role, income, overtime, satisfaction scores, tenure and more.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span class="flow-ico">🔢</span><h4>2 · Encode</h4><p>Categorical values are mapped to numbers using the <em>same</em> label encoders fitted during training.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span class="flow-ico">📐</span><h4>3 · Scale</h4><p>The row is standardised with the saved scaler so it matches what Logistic Regression expects.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span class="flow-ico">🤖</span><h4>4 · Predict</h4><p>Every model returns a leave/stay probability; the system reports a clear risk verdict.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step"><span class="flow-ico">🔍</span><h4>5 · Explain</h4><p>Coefficient × value shows the top factors pushing this employee's risk up or down.</p></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step accent"><span class="flow-ico">🏥</span><h4>6 · Recommend</h4><p>A rule engine prioritises personalised HR actions to retain this specific person.</p></div>
+  </div>
+
+  <div class="metrics-explain">
+    <h3>The metrics, in plain English</h3>
+    <div class="me-grid">
+      <div class="me"><b>Accuracy</b><p>Share of all predictions that were correct — but misleading when 84% never leave.</p></div>
+      <div class="me"><b>Precision</b><p>Of those we flagged as "will leave", how many actually did. High precision = few false alarms.</p></div>
+      <div class="me"><b>Recall</b><p>Of everyone who actually left, how many we caught. The metric that matters most here.</p></div>
+      <div class="me"><b>F1-Score</b><p>The balance between precision and recall — one number for the trade-off.</p></div>
+      <div class="me"><b>ROC-AUC</b><p>How well the model <em>ranks</em> risk regardless of threshold. 0.5 = guessing, 1.0 = perfect.</p></div>
+      <div class="me"><b>Confusion Matrix</b><p>The full breakdown of true/false positives and negatives — which errors, not just how many.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ░░ INSIGHTS & RECOMMENDATIONS ░░ -->
 <section class="section" id="insights">
   <div class="section-head">
-    <span class="kicker">07 — Insights &amp; Action</span>
+    <span class="kicker">08 — Insights &amp; Action</span>
     <h2>From prediction to decision-support</h2>
     <p class="sub">The real value isn't the score — it's translating risk into specific, fundable HR action.</p>
   </div>
@@ -433,9 +499,27 @@
 </section>
 
 <footer class="footer">
-  <p>Built by Sarosh Kumar · Machine Learning Portfolio · <span id="year"></span></p>
-  <p class="muted">HR Employee Attrition Predictor — IBM HR Analytics dataset.</p>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="brand">SK<span>.</span></span>
+      <p class="muted">Machine learning that earns its decisions.</p>
+    </div>
+    <nav class="footer-nav">
+      <a href="#about">About</a>
+      <a href="#project">Project</a>
+      <a href="#eda">Findings</a>
+      <a href="#results">Results</a>
+      <a href="#insights">Action</a>
+      <a href="https://github.com/saroshkumar-ops" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <p>Built by Sarosh Kumar · <span id="year"></span></p>
+    <p class="muted">HR Employee Attrition Predictor — IBM HR Analytics dataset.</p>
+  </div>
 </footer>
+
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
 
 <script src="script.js"></script>
 </body>
