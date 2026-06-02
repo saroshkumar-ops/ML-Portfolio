@@ -113,20 +113,50 @@
       <p><strong>Overtime</strong> is the strongest signal — employees who work overtime leave at <strong>30.5%</strong> vs <strong>10.4%</strong>. Low pay, single status, no stock options and early tenure compound the risk.</p>
     </article>
 
-    <figure class="card shot">
-      <img src="assets/eda_figure1_overview.png" alt="EDA overview: attrition patterns across overtime, department, age, income and satisfaction" loading="lazy" />
-      <figcaption>EDA — dataset overview &amp; attrition patterns</figcaption>
-    </figure>
-    <figure class="card shot">
-      <img src="assets/feature_importance.png" alt="Random Forest feature importance ranking" loading="lazy" />
-      <figcaption>Which factors matter most (Random Forest)</figcaption>
-    </figure>
-    <figure class="card shot span2">
-      <img src="assets/model_comparison.png" alt="Model performance comparison and confusion matrices" loading="lazy" />
-      <figcaption>Model performance comparison &amp; confusion matrices</figcaption>
-    </figure>
+    <!-- ── Carousel ── -->
+    <div class="card carousel span2" id="carousel" aria-roledescription="carousel">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="track">
+          <figure class="slide"><img src="assets/eda_figure1_overview.png" alt="EDA overview — attrition by overtime, department, age, income and satisfaction" loading="lazy" /><figcaption>EDA — dataset overview &amp; attrition patterns</figcaption></figure>
+          <figure class="slide"><img src="assets/eda_figure2_drivers.png" alt="EDA deep dive into key attrition drivers" loading="lazy" /><figcaption>EDA — key attrition drivers, deep dive</figcaption></figure>
+          <figure class="slide"><img src="assets/model_comparison.png" alt="Model performance comparison and confusion matrices" loading="lazy" /><figcaption>Model performance comparison &amp; confusion matrices</figcaption></figure>
+          <figure class="slide"><img src="assets/feature_importance.png" alt="Random Forest feature importance ranking" loading="lazy" /><figcaption>Feature importance — Random Forest</figcaption></figure>
+          <figure class="slide"><img src="assets/variable_importance.png" alt="Variable importance plot" loading="lazy" /><figcaption>Variable importance plot</figcaption></figure>
+          <figure class="slide"><img src="assets/partial_dependence.png" alt="Partial dependence plots" loading="lazy" /><figcaption>Partial dependence — how features shift risk</figcaption></figure>
+          <figure class="slide"><img src="assets/overtime_income_attrition.png" alt="Attrition by overtime and income" loading="lazy" /><figcaption>Overtime &amp; income vs attrition</figcaption></figure>
+          <figure class="slide"><img src="assets/income_attrition.png" alt="Attrition by monthly income" loading="lazy" /><figcaption>Monthly income vs attrition</figcaption></figure>
+          <figure class="slide"><img src="assets/age_attrition.png" alt="Attrition by age" loading="lazy" /><figcaption>Age vs attrition</figcaption></figure>
+          <figure class="slide"><img src="assets/jobrole_attrition.png" alt="Attrition rate by job role" loading="lazy" /><figcaption>Attrition rate by job role</figcaption></figure>
+          <figure class="slide"><img src="assets/jobsatisfaction_attrition.png" alt="Attrition by job satisfaction" loading="lazy" /><figcaption>Job satisfaction vs attrition</figcaption></figure>
+          <figure class="slide"><img src="assets/marital_attrition.png" alt="Attrition rate by marital status" loading="lazy" /><figcaption>Attrition rate by marital status</figcaption></figure>
+          <figure class="slide"><img src="assets/travel_attrition.png" alt="Attrition rate by business travel" loading="lazy" /><figcaption>Attrition rate by business travel</figcaption></figure>
+          <figure class="slide"><img src="assets/stockoption_attrition.png" alt="Attrition rate by stock option level" loading="lazy" /><figcaption>Attrition rate by stock option level</figcaption></figure>
+          <figure class="slide"><img src="assets/worklife_attrition.png" alt="Attrition rate by work-life balance" loading="lazy" /><figcaption>Attrition rate by work-life balance</figcaption></figure>
+          <figure class="slide"><img src="assets/involvement_attrition.png" alt="Attrition rate by job involvement" loading="lazy" /><figcaption>Attrition rate by job involvement</figcaption></figure>
+          <figure class="slide"><img src="assets/tenure_attrition.png" alt="Attrition by years at company" loading="lazy" /><figcaption>Tenure (years at company) vs attrition</figcaption></figure>
+          <figure class="slide"><img src="assets/attrition_factors.png" alt="Top factors associated with attrition" loading="lazy" /><figcaption>Top factors associated with attrition</figcaption></figure>
+        </div>
+      </div>
+      <button class="carousel-btn prev" id="prev" aria-label="Previous chart">‹</button>
+      <button class="carousel-btn next" id="next" aria-label="Next chart">›</button>
+      <div class="carousel-meta">
+        <span class="carousel-caption" id="carouselCaption">EDA — dataset overview &amp; attrition patterns</span>
+        <span class="carousel-count" id="carouselCount">1 / 18</span>
+      </div>
+      <div class="carousel-dots" id="dots"></div>
+      <p class="carousel-hint">Tap any chart to enlarge ⤢</p>
+    </div>
   </div>
 </section>
+
+<!-- ░░ LIGHTBOX ░░ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lbClose" aria-label="Close">×</button>
+  <button class="lightbox-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="" />
+  <button class="lightbox-nav lb-next" id="lbNext" aria-label="Next">›</button>
+  <span class="lightbox-caption" id="lbCaption"></span>
+</div>
 
 <!-- ░░ CONCEPTS ░░ -->
 <section class="section" id="concepts">
