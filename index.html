@@ -18,9 +18,10 @@
   <nav class="nav-links">
     <a href="#journey">Journey</a>
     <a href="#project">Project</a>
-    <a href="#data">Data &amp; Method</a>
-    <a href="#concepts">What I Learned</a>
+    <a href="#data">Data</a>
+    <a href="#eda">Findings</a>
     <a href="#results">Results</a>
+    <a href="#insights">Action</a>
   </nav>
 </header>
 
@@ -250,10 +251,92 @@
   </ol>
 </section>
 
+<!-- ░░ EDA FINDINGS ░░ -->
+<section class="section alt" id="eda">
+  <div class="section-head">
+    <span class="kicker">04 — EDA Findings</span>
+    <h2>What the data revealed</h2>
+    <p class="sub">Exploratory analysis surfaced clear, quantifiable drivers of attrition before any model was trained. Each figure is the attrition rate within that group.</p>
+  </div>
+
+  <div class="eda-grid">
+    <div class="eda-card hi">
+      <h4>⏰ Overtime</h4>
+      <div class="eda-rows"><span>Works overtime</span><b>30.5%</b></div>
+      <div class="eda-rows"><span>No overtime</span><b>10.4%</b></div>
+      <p>The strongest single attrition indicator — nearly 3× the risk.</p>
+    </div>
+    <div class="eda-card">
+      <h4>😊 Job Satisfaction</h4>
+      <div class="eda-rows"><span>Level 1 (low)</span><b>22.8%</b></div>
+      <div class="eda-rows"><span>Level 4 (high)</span><b>11.3%</b></div>
+      <p>Attrition falls as satisfaction rises.</p>
+    </div>
+    <div class="eda-card hi">
+      <h4>💰 Monthly Income</h4>
+      <div class="eda-rows"><span>Under $3,000</span><b>28.6%</b></div>
+      <div class="eda-rows"><span>Above $12,000</span><b>5.6%</b></div>
+      <p>Lower pay sharply increases attrition.</p>
+    </div>
+    <div class="eda-card">
+      <h4>🎂 Age</h4>
+      <div class="eda-rows"><span>Age 18–25</span><b>35.8%</b></div>
+      <div class="eda-rows"><span>Older groups</span><b>lower</b></div>
+      <p>Younger employees leave far more often.</p>
+    </div>
+    <div class="eda-card hi">
+      <h4>💼 Job Role</h4>
+      <div class="eda-rows"><span>Sales Representative</span><b>39.8%</b></div>
+      <div class="eda-rows"><span>Lab Technician</span><b>23.9%</b></div>
+      <p>Highest-risk roles in the company.</p>
+    </div>
+    <div class="eda-card hi">
+      <h4>📅 Tenure</h4>
+      <div class="eda-rows"><span>0–1 year</span><b>34.9%</b></div>
+      <div class="eda-rows"><span>10+ years</span><b>8.1%</b></div>
+      <p>New employees are the highest risk.</p>
+    </div>
+    <div class="eda-card">
+      <h4>💍 Marital Status</h4>
+      <div class="eda-rows"><span>Single</span><b>25.5%</b></div>
+      <div class="eda-rows"><span>Married</span><b>12.5%</b></div>
+      <div class="eda-rows"><span>Divorced</span><b>10.1%</b></div>
+    </div>
+    <div class="eda-card">
+      <h4>✈️ Business Travel</h4>
+      <div class="eda-rows"><span>Frequent travel</span><b>24.9%</b></div>
+      <div class="eda-rows"><span>Non-travel</span><b>8.0%</b></div>
+      <p>Frequent travel triples the risk.</p>
+    </div>
+    <div class="eda-card">
+      <h4>📈 Stock Options</h4>
+      <div class="eda-rows"><span>Level 0 (none)</span><b>24.4%</b></div>
+      <div class="eda-rows"><span>Level 1+</span><b>much lower</b></div>
+      <p>Equity meaningfully improves retention.</p>
+    </div>
+    <div class="eda-card">
+      <h4>⚖️ Work-Life Balance</h4>
+      <div class="eda-rows"><span>Poor balance</span><b>31.2%</b></div>
+      <div class="eda-rows"><span>Better balance</span><b>much lower</b></div>
+    </div>
+    <div class="eda-card">
+      <h4>💡 Job Involvement</h4>
+      <div class="eda-rows"><span>Level 1 (low)</span><b>33.7%</b></div>
+      <div class="eda-rows"><span>Level 4 (high)</span><b>9.0%</b></div>
+      <p>Strong negative relationship with attrition.</p>
+    </div>
+    <div class="eda-card feat">
+      <h4>🏆 Top Features</h4>
+      <p>Feature-importance analysis ranked the strongest predictors:</p>
+      <div class="feat-tags"><span>OverTime</span><span>MonthlyIncome</span><span>Age</span><span>TotalWorkingYears</span><span>YearsAtCompany</span><span>StockOptionLevel</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ░░ CONCEPTS ░░ -->
 <section class="section" id="concepts">
   <div class="section-head">
-    <span class="kicker">04 — What I Learned</span>
+    <span class="kicker">05 — What I Learned</span>
     <h2>Concepts, applied — not just studied</h2>
     <p class="sub">Each card is a course topic I implemented and reasoned about in the project.</p>
   </div>
@@ -279,7 +362,7 @@
 <!-- ░░ RESULTS ░░ -->
 <section class="section alt" id="results">
   <div class="section-head">
-    <span class="kicker">05 — Results</span>
+    <span class="kicker">06 — Results</span>
     <h2>Six models, measured honestly</h2>
     <p class="sub">Evaluated at an imbalance-adjusted 0.40 threshold. F1 and ROC-AUC tell the real story — not accuracy alone.</p>
   </div>
@@ -304,6 +387,48 @@
     <div class="takeaway"><h4>Accuracy isn't enough</h4><p>An 84% "predict everyone stays" baseline looks fine but catches zero leavers. Our model adds <strong>+4.4 real points</strong> while genuinely flagging at-risk staff.</p></div>
     <div class="takeaway"><h4>Trade-offs are choices</h4><p>Lowering the threshold trades a little accuracy for more recall — the right call when a missed leaver costs far more than a false alarm.</p></div>
     <div class="takeaway"><h4>The best model is a blend</h4><p>Stacking combined the strengths of all three base learners to top both ROC-AUC and accuracy.</p></div>
+  </div>
+</section>
+
+<!-- ░░ INSIGHTS & RECOMMENDATIONS ░░ -->
+<section class="section" id="insights">
+  <div class="section-head">
+    <span class="kicker">07 — Insights &amp; Action</span>
+    <h2>From prediction to decision-support</h2>
+    <p class="sub">The real value isn't the score — it's translating risk into specific, fundable HR action.</p>
+  </div>
+
+  <div class="insight-cols">
+    <div class="insight-block">
+      <h3>Key business insights</h3>
+      <ul class="check">
+        <li><strong>Overtime</strong> is the strongest attrition driver.</li>
+        <li><strong>Low salary</strong> significantly increases attrition.</li>
+        <li><strong>Younger employees</strong> are more likely to leave.</li>
+        <li><strong>First-year employees</strong> are the highest risk.</li>
+        <li><strong>Low involvement &amp; satisfaction</strong> raise attrition.</li>
+        <li><strong>Stock options</strong> improve retention.</li>
+      </ul>
+    </div>
+
+    <div class="insight-block risk">
+      <h3>Compounding risk factors</h3>
+      <p>Risk factors don't act alone — they <em>multiply</em>. Low income <span class="plus">+</span> overtime employees reach roughly <strong>53% attrition</strong>, far above any single factor.</p>
+      <div class="risk-profile">
+        <span class="rp-label">Highest-risk profile</span>
+        <div class="rp-tags"><span>Young</span><span>Low paid</span><span>Works overtime</span><span>Early tenure</span><span>Low engagement</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="rec-title">HR retention recommendations</h3>
+  <div class="rec-grid">
+    <div class="rec"><span>01</span><p>Reduce mandatory <strong>overtime</strong>.</p></div>
+    <div class="rec"><span>02</span><p>Improve <strong>compensation</strong> for lower-paid employees.</p></div>
+    <div class="rec"><span>03</span><p>Strengthen <strong>onboarding</strong> programs.</p></div>
+    <div class="rec"><span>04</span><p>Provide <strong>mentorship</strong> for early-career staff.</p></div>
+    <div class="rec"><span>05</span><p>Increase <strong>employee engagement</strong>.</p></div>
+    <div class="rec"><span>06</span><p>Offer <strong>stock-option incentives</strong> where possible.</p></div>
   </div>
 </section>
 
