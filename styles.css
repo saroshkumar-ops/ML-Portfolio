@@ -430,3 +430,31 @@ table.results td{font-variant-numeric:tabular-nums}
 .ml-figs{grid-template-columns:1fr;align-items:start;gap:20px}
 .ml-figs .shot{align-items:stretch}
 .ml-figs .shot img{max-height:none;height:auto;width:100%;padding:18px}
+
+/* ═══════════════ COURSE HEADER (Home, reference-style) ═══════════════ */
+.course-hero{text-align:center;display:flex;flex-direction:column;justify-content:center;
+  min-height:clamp(360px,56vh,520px);padding-top:clamp(40px,7vw,70px)}
+.course-header{position:relative;max-width:var(--maxw);margin:0 auto;z-index:1}
+.course-hero .course-name{
+  font-family:var(--font-display);font-weight:800;letter-spacing:-.5px;line-height:1.14;
+  font-size:clamp(1.9rem,4.8vw,3.3rem);max-width:none;
+  background:none;-webkit-background-clip:initial;background-clip:initial;
+  -webkit-text-fill-color:#fff;color:#fff;margin:0 auto}
+.course-code{color:var(--accent);font-weight:700;-webkit-text-fill-color:var(--accent)}
+.course-meta{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;
+  margin-top:18px;font-family:var(--font-display);font-weight:600;font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--text)}
+.course-meta .divider{color:var(--line)}
+.course-title{margin-top:22px;font-family:var(--font-display);font-weight:700;
+  font-size:clamp(1.25rem,3vw,1.9rem);color:var(--text)}
+.course-title span{background:linear-gradient(120deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Project Overview band (echoes the reference's highlighted bar) */
+.overview-band{background:linear-gradient(90deg,rgba(110,168,254,.16),rgba(155,140,255,.06));
+  border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;
+  padding:18px 26px;margin-bottom:22px}
+.overview-band h2{font-family:var(--font-display);font-weight:700;margin:0;
+  font-size:clamp(1.3rem,2.8vw,1.8rem);letter-spacing:-.4px}
+.overview-text{color:var(--muted);max-width:84ch;font-size:clamp(1rem,2vw,1.1rem);margin-bottom:38px}
+.home-grid.two{grid-template-columns:1fr 1fr}
+@media(max-width:760px){.home-grid.two{grid-template-columns:1fr}}
