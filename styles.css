@@ -80,9 +80,10 @@ em{color:var(--accent);font-style:normal}
 .hero-stats .lbl{font-size:.82rem;color:var(--muted);letter-spacing:.3px}
 
 /* ── SECTIONS ── */
-.section{padding:clamp(64px,9vw,110px) clamp(20px,5vw,48px);max-width:var(--maxw);margin:0 auto}
-.section.alt{max-width:none;background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.section.alt .section-head,.section.alt>.project-grid,.section.alt>.table-wrap,.section.alt>.takeaways{max-width:var(--maxw);margin-left:auto;margin-right:auto}
+.section{position:relative;padding:clamp(72px,10vw,120px) clamp(22px,5vw,48px);max-width:var(--maxw);margin:0 auto}
+.section.alt::before{content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:100vw;
+  background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);z-index:0}
+.section.alt>*{position:relative;z-index:1}
 .section-head{margin-bottom:48px;max-width:64ch}
 .kicker{font-family:var(--font-mono);font-size:.8rem;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase}
 .section-head h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:-.8px;margin-top:12px}
@@ -356,3 +357,63 @@ table.results tbody tr:hover{background:rgba(255,255,255,.03)}
 @media(max-width:760px){.ml-figs{grid-template-columns:1fr}}
 .ml-figs .shot img{height:auto;object-fit:contain}
 .data-grid .shot img,.intro-grid .shot img{height:auto;object-fit:contain}
+
+/* ═══════════════ PREMIUM POLISH ═══════════════ */
+:root{--shadow:0 1px 0 rgba(255,255,255,.03) inset,0 18px 40px -24px rgba(0,0,0,.75);--radius:16px}
+
+/* deeper, calmer cards with consistent feel */
+.card,.concept,.eda-card,.insight-block,.pipeline li,.flow-step,.me,.rec,.skills{
+  box-shadow:var(--shadow);border-radius:var(--radius)}
+.card:hover,.concept:hover,.eda-card:hover,.rec:hover,.flow-step:hover{
+  box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 22px 50px -22px rgba(0,0,0,.85)}
+
+/* tighter heading rhythm + readable measure */
+.card p,.eda-card p,.intro-grid p,.me p,.concept p{max-width:62ch}
+.card h3{font-size:1.12rem;letter-spacing:-.2px;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.section-head{margin-bottom:clamp(34px,5vw,52px)}
+.section-head h2{line-height:1.12}
+
+/* equal-height grid items + consistent gaps */
+.home-grid,.intro-grid,.data-grid,.concept-grid,.eda-grid,.ml-figs,.insight-cols,.rec-grid,.project-grid{gap:18px}
+.home-grid,.intro-grid,.data-grid,.ml-figs{align-items:stretch}
+.home-grid>*,.intro-grid>*,.data-grid>*{display:flex;flex-direction:column}
+.kv,.check{margin-top:auto}
+.home-grid .card h3,.intro-grid .card h3{margin-bottom:14px}
+
+/* key/value + lists breathe more */
+.kv li{padding:9px 0}
+.check li{padding-left:30px;margin-bottom:0}
+.check{gap:13px}
+
+/* subheads: clearer hierarchy, more air */
+.subhead{margin:clamp(40px,6vw,64px) 0 24px}
+.subhead:first-of-type{margin-top:8px}
+
+/* image cards: frame, even matting, no awkward crop */
+.shot{display:flex;flex-direction:column;background:var(--card)}
+.shot img{height:auto;max-height:520px;object-fit:contain;padding:14px;background:#fff;border-radius:var(--radius) var(--radius) 0 0}
+.shot figcaption{margin-top:auto}
+.data-grid .shot,.intro-grid .shot{justify-content:center}
+
+/* results table: premium spacing */
+.table-wrap{box-shadow:var(--shadow)}
+table.results th,table.results td{padding:15px 18px}
+table.results td{font-variant-numeric:tabular-nums}
+
+/* carousel sits flush + framed */
+.carousel{box-shadow:var(--shadow)}
+.carousel-viewport{background:#fff}
+.slide img{padding:16px;background:#fff}
+
+/* hero: a touch more polish */
+.hero{padding-top:clamp(84px,12vw,150px)}
+.hero .lead{margin-top:26px}
+
+/* feature tags + chips: even spacing */
+.feat-tags,.rp-tags,.chips,.tags{gap:9px}
+
+/* concept cards: vertical centering for short text */
+.concept{display:flex;flex-direction:column;justify-content:center;min-height:120px}
+
+/* footer rhythm */
+.footer-top{padding-top:54px}
