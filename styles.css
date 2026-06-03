@@ -425,3 +425,8 @@ table.results td{font-variant-numeric:tabular-nums}
 .brand-logo img{height:30px;width:auto;display:block}
 .brand-logo--footer img{height:26px}
 @media(max-width:480px){.brand-logo img{height:24px}.brand-logo{padding:5px 9px}}
+
+/* ── ML figures: stack full-width, natural height (no equal-height gap) ── */
+.ml-figs{grid-template-columns:1fr;align-items:start;gap:20px}
+.ml-figs .shot{align-items:stretch}
+.ml-figs .shot img{max-height:none;height:auto;width:100%;padding:18px}
