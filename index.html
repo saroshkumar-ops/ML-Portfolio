@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sarosh Kumar — Machine Learning Portfolio</title>
-<meta name="description" content="A machine learning portfolio documenting the journey of building an HR Employee Attrition Predictor — from EDA to ensembles, evaluation and interpretation." />
+<title>HR Employee Attrition — EDA & ML Project | Sarosh Kumar</title>
+<meta name="description" content="Course project: Exploratory Data Analysis and Machine Learning on the IBM HR Employee Attrition dataset." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -12,171 +12,288 @@
 </head>
 <body>
 
-<!-- ░░ SCROLL PROGRESS ░░ -->
 <div class="scroll-progress" id="progress"></div>
 
 <!-- ░░ NAV ░░ -->
 <header class="nav" id="nav">
-  <a href="#top" class="brand">SK<span>.</span></a>
+  <a href="#home" class="brand">Attrition<span>.</span></a>
   <nav class="nav-links" id="navLinks">
-    <a href="#about">My Role</a>
-    <a href="#project">Project</a>
-    <a href="#data">Data</a>
-    <a href="#eda">Findings</a>
-    <a href="#results">Results</a>
-    <a href="#how">How</a>
-    <a href="#insights">Action</a>
+    <a href="#home">Home</a>
+    <a href="#introduction">Introduction</a>
+    <a href="#eda">EDA</a>
+    <a href="#ml">Machine Learning</a>
+    <a href="#reflections">Reflections</a>
   </nav>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
 </header>
 
-<!-- ░░ HERO ░░ -->
-<section class="hero" id="top">
+<!-- ░░ HOME ░░ -->
+<section class="hero" id="home">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <p class="eyebrow"><span class="pulse"></span> Machine Learning · Portfolio · 2026</p>
-    <h1>Turning data into <span class="grad">decisions</span>.</h1>
+    <p class="eyebrow"><span class="pulse"></span> Course Project · Exploratory Data Analysis</p>
+    <h1>HR Employee Attrition <span class="grad">Prediction</span></h1>
     <p class="lead">
-      I'm <strong>Sarosh Kumar</strong>. This portfolio documents my journey through machine learning —
-      built around a complete, end-to-end project: an
-      <strong>HR Employee Attrition Predictor</strong> that learns <em>who is likely to leave</em>,
-      <em>why</em>, and <em>what to do about it</em>.
+      An end-to-end Exploratory Data Analysis &amp; Machine Learning project on the
+      <strong>IBM HR Analytics</strong> dataset — predicting which employees are likely to
+      leave, understanding <em>why</em>, and recommending what HR can do about it.
     </p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#project">Explore the project</a>
+      <a class="btn btn-primary" href="#eda">View the analysis</a>
       <a class="btn btn-ghost" href="https://github.com/saroshkumar-ops" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
-    <div class="hero-stats">
-      <div><span class="num" data-count="6">6</span><span class="lbl">models trained</span></div>
-      <div><span class="num" data-count="88.4" data-suffix="%">88.4%</span><span class="lbl">best accuracy</span></div>
-      <div><span class="num" data-count="0.82">0.82</span><span class="lbl">best ROC-AUC</span></div>
-      <div><span class="num" data-count="1470" data-comma="1">1,470</span><span class="lbl">employees analysed</span></div>
-    </div>
   </div>
-  <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+  <a href="#home-info" class="scroll-cue" aria-label="Scroll down"><span></span></a>
 </section>
 
-<!-- ░░ ABOUT ░░ -->
-<section class="section" id="about">
-  <div class="about-wrap">
-    <div class="about-text">
-      <span class="kicker">00 — My Contribution</span>
-      <h2>I owned the model evaluation for this project.</h2>
-      <p>Within the team, my main responsibility was <strong>model evaluation</strong> — taking the trained models and rigorously measuring how good they actually were, so the group could pick the right one for the business goal rather than the one with the prettiest accuracy.</p>
-      <p>That meant comparing every model on <strong>accuracy, precision, recall, F1-score, ROC-AUC and confusion matrices</strong>, interpreting what those numbers meant on an imbalanced dataset, and making the case for <em>recall</em> as the deciding metric — because missing an employee who's about to leave costs far more than a false alarm.</p>
-      <div class="about-meta">
-        <div><span class="am-k">My role</span><span class="am-v">Model Evaluation &amp; Selection</span></div>
-        <div><span class="am-k">Metrics</span><span class="am-v">Accuracy · Precision · Recall · F1 · ROC-AUC</span></div>
-        <div><span class="am-k">Key call</span><span class="am-v">Chose recall as the selection criterion</span></div>
-      </div>
-    </div>
-    <aside class="skills">
-      <h3>What I did</h3>
-      <div class="skill-group"><span class="sg-label">Evaluated</span><div class="chips"><span>Logistic Regression</span><span>Decision Tree</span><span>Random Forest</span><span>Bagging</span><span>Boosting</span><span>Stacking</span></div></div>
-      <div class="skill-group"><span class="sg-label">Metrics &amp; analysis</span><div class="chips"><span>Confusion matrix</span><span>Precision / Recall</span><span>F1-score</span><span>ROC-AUC</span><span>Threshold tuning</span></div></div>
-      <div class="skill-group"><span class="sg-label">Validation</span><div class="chips"><span>Stratified split</span><span>Cross-validation</span><span>Class-imbalance handling</span></div></div>
-      <div class="skill-group"><span class="sg-label">Tools</span><div class="chips"><span>scikit-learn</span><span>pandas</span><span>matplotlib</span></div></div>
-    </aside>
-  </div>
-</section>
-
-<!-- ░░ JOURNEY ░░ -->
-<section class="section" id="journey">
-  <div class="section-head">
-    <span class="kicker">01 — The Journey</span>
-    <h2>From raw data to a reasoning system</h2>
-    <p class="sub">Every step below was a concept learned in the course and then applied for real on the IBM HR dataset.</p>
-  </div>
-
-  <ol class="timeline">
-    <li>
-      <span class="dot"></span>
-      <h3>Understanding the data</h3>
-      <p>Loaded 1,470 employee records, dropped non-informative columns, handled the target, and confirmed a clean dataset with a meaningful <strong>class imbalance</strong> (~16% leavers) — the single fact that shaped every decision afterwards.</p>
-    </li>
-    <li>
-      <span class="dot"></span>
-      <h3>Exploratory Data Analysis</h3>
-      <p>Twelve visual stories — overtime, income, age, job role, marital status, satisfaction, tenure — to find the <em>real drivers</em> of attrition before modelling anything.</p>
-    </li>
-    <li>
-      <span class="dot"></span>
-      <h3>Preprocessing — scaling &amp; normalizing</h3>
-      <p>Learned why <strong>feature scaling</strong> matters: standardizing features let Logistic Regression converge in 18 iterations instead of failing after 1,000, and made its coefficients interpretable. Compared standardization vs min-max vs row-normalization and chose the right tool.</p>
-    </li>
-    <li>
-      <span class="dot"></span>
-      <h3>Modelling — from one tree to ensembles</h3>
-      <p>Logistic Regression → Decision Tree → Random Forest, then the ensemble family: <strong>Bagging</strong> (parallel, variance↓), <strong>Boosting</strong> (sequential, bias↓), and <strong>Stacking</strong> (a learned blend of all three).</p>
-    </li>
-    <li>
-      <span class="dot"></span>
-      <h3>Evaluation — beyond accuracy</h3>
-      <p>Confusion matrices, precision/recall, F1, ROC-AUC, and cross-validation. Learned that on imbalanced data <em>accuracy lies</em> — and that the threshold you classify at is a design decision, not a default.</p>
-    </li>
-    <li>
-      <span class="dot"></span>
-      <h3>Interpretation &amp; action</h3>
-      <p>Turned coefficients into a human-readable "why", and a 13-rule engine into personalised retention recommendations. A model is only useful when someone can act on it.</p>
-    </li>
-  </ol>
-</section>
-
-<!-- ░░ PROJECT ░░ -->
-<section class="section alt" id="project">
-  <div class="section-head">
-    <span class="kicker">02 — Flagship Project</span>
-    <h2>HR Employee Attrition Predictor</h2>
-    <p class="sub">A complete Python ML system on the IBM HR Analytics dataset — data in, decisions out.</p>
-  </div>
-
-  <div class="project-grid">
-    <article class="card span2">
-      <h3>What it does</h3>
-      <p>Loads and preprocesses the data, trains and tunes six models, evaluates them with a full metric suite, generates every EDA and comparison chart, then lets a user enter <em>any</em> employee — manually or from a CSV — to predict whether they'll <strong>leave or stay</strong> and receive prioritised, personalised HR actions to retain them.</p>
-      <div class="tags">
-        <span>pandas</span><span>NumPy</span><span>scikit-learn</span><span>matplotlib</span><span>seaborn</span>
-      </div>
+<!-- ░░ HOME — info cards ░░ -->
+<section class="section" id="home-info">
+  <div class="home-grid">
+    <article class="card">
+      <h3>📘 Course Information</h3>
+      <ul class="kv">
+        <li><span>Course</span><b>Exploratory Data Analysis</b></li>
+        <li><span>Course Code</span><b>24ECSC210</b></li>
+        <li><span>Semester</span><b>IV · 2024–2025</b></li>
+        <li><span>Institute</span><b>KLE Technological University</b></li>
+      </ul>
     </article>
 
     <article class="card">
-      <h3>Key insight</h3>
-      <p><strong>Overtime</strong> is the strongest signal — employees who work overtime leave at <strong>30.5%</strong> vs <strong>10.4%</strong>. Low pay, single status, no stock options and early tenure compound the risk.</p>
+      <h3>🎯 Project Overview</h3>
+      <p>This project analyses the IBM HR Employee Attrition dataset (1,470 employees) to uncover the factors behind employee turnover and build predictive models. It combines exploratory analysis, data preprocessing, and supervised machine learning to turn raw HR data into an actionable, decision-support tool.</p>
     </article>
 
-    <!-- ── Carousel ── -->
-    <div class="card carousel span2" id="carousel" aria-roledescription="carousel">
-      <div class="carousel-viewport">
-        <div class="carousel-track" id="track">
-          <figure class="slide"><img src="assets/eda_figure1_overview.png" alt="EDA overview — attrition by overtime, department, age, income and satisfaction" loading="lazy" /><figcaption>EDA — dataset overview &amp; attrition patterns</figcaption></figure>
-          <figure class="slide"><img src="assets/eda_figure2_drivers.png" alt="EDA deep dive into key attrition drivers" loading="lazy" /><figcaption>EDA — key attrition drivers, deep dive</figcaption></figure>
-          <figure class="slide"><img src="assets/model_comparison.png" alt="Model performance comparison and confusion matrices" loading="lazy" /><figcaption>Model performance comparison &amp; confusion matrices</figcaption></figure>
-          <figure class="slide"><img src="assets/feature_importance.png" alt="Random Forest feature importance ranking" loading="lazy" /><figcaption>Feature importance — Random Forest</figcaption></figure>
-          <figure class="slide"><img src="assets/variable_importance.png" alt="Variable importance plot" loading="lazy" /><figcaption>Variable importance plot</figcaption></figure>
-          <figure class="slide"><img src="assets/partial_dependence.png" alt="Partial dependence plots" loading="lazy" /><figcaption>Partial dependence — how features shift risk</figcaption></figure>
-          <figure class="slide"><img src="assets/overtime_income_attrition.png" alt="Attrition by overtime and income" loading="lazy" /><figcaption>Overtime &amp; income vs attrition</figcaption></figure>
-          <figure class="slide"><img src="assets/income_attrition.png" alt="Attrition by monthly income" loading="lazy" /><figcaption>Monthly income vs attrition</figcaption></figure>
-          <figure class="slide"><img src="assets/age_attrition.png" alt="Attrition by age" loading="lazy" /><figcaption>Age vs attrition</figcaption></figure>
-          <figure class="slide"><img src="assets/jobrole_attrition.png" alt="Attrition rate by job role" loading="lazy" /><figcaption>Attrition rate by job role</figcaption></figure>
-          <figure class="slide"><img src="assets/jobsatisfaction_attrition.png" alt="Attrition by job satisfaction" loading="lazy" /><figcaption>Job satisfaction vs attrition</figcaption></figure>
-          <figure class="slide"><img src="assets/marital_attrition.png" alt="Attrition rate by marital status" loading="lazy" /><figcaption>Attrition rate by marital status</figcaption></figure>
-          <figure class="slide"><img src="assets/travel_attrition.png" alt="Attrition rate by business travel" loading="lazy" /><figcaption>Attrition rate by business travel</figcaption></figure>
-          <figure class="slide"><img src="assets/stockoption_attrition.png" alt="Attrition rate by stock option level" loading="lazy" /><figcaption>Attrition rate by stock option level</figcaption></figure>
-          <figure class="slide"><img src="assets/worklife_attrition.png" alt="Attrition rate by work-life balance" loading="lazy" /><figcaption>Attrition rate by work-life balance</figcaption></figure>
-          <figure class="slide"><img src="assets/involvement_attrition.png" alt="Attrition rate by job involvement" loading="lazy" /><figcaption>Attrition rate by job involvement</figcaption></figure>
-          <figure class="slide"><img src="assets/tenure_attrition.png" alt="Attrition by years at company" loading="lazy" /><figcaption>Tenure (years at company) vs attrition</figcaption></figure>
-          <figure class="slide"><img src="assets/attrition_factors.png" alt="Top factors associated with attrition" loading="lazy" /><figcaption>Top factors associated with attrition</figcaption></figure>
-        </div>
+    <article class="card">
+      <h3>👤 About the Creator</h3>
+      <p><strong>Sarosh Kumar</strong> — a computer science student interested in applied machine learning and data-driven decision making. Within this project, I owned the <strong>model evaluation</strong> — comparing models on the full metric suite and making the case for recall as the deciding metric.</p>
+    </article>
+
+    <article class="card">
+      <h3>🎓 Faculty Attribution</h3>
+      <p>Carried out under the guidance of <strong>Dr. [Faculty Name]</strong>, Professor, School of Computer Science &amp; Engineering, KLE Technological University.</p>
+      <p class="tiny muted">↳ replace with your guide's name before submission.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ░░ INTRODUCTION ░░ -->
+<section class="section alt" id="introduction">
+  <div class="section-head">
+    <span class="kicker">01 — Introduction</span>
+    <h2>The problem &amp; why it matters</h2>
+  </div>
+  <div class="intro-grid">
+    <div class="card span2">
+      <h3>Problem statement</h3>
+      <p>Employee attrition — people voluntarily leaving — is expensive. Replacing an employee costs time, money, and lost knowledge. If an organisation can identify <em>who</em> is at risk <em>before</em> they leave, HR can intervene early. This project frames that as a <strong>supervised binary classification</strong> problem: predict whether an employee's <code>Attrition</code> is <strong>Yes</strong> (will leave) or <strong>No</strong> (will stay).</p>
+    </div>
+    <div class="card">
+      <h3>Objectives</h3>
+      <ul class="check">
+        <li>Explore the drivers of attrition through EDA.</li>
+        <li>Preprocess and prepare the data for modelling.</li>
+        <li>Train &amp; compare multiple ML models.</li>
+        <li>Select the best model for the business goal.</li>
+        <li>Translate results into HR action.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Why it's challenging</h3>
+      <p>The dataset is <strong>imbalanced</strong> — only ~16% of employees actually leave. A model that blindly predicts "everyone stays" would be 84% accurate yet useless. This shapes every modelling and evaluation choice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ EXPLORATORY DATA ANALYSIS ░░ -->
+<section class="section" id="eda">
+  <div class="section-head">
+    <span class="kicker">02 — Exploratory Data Analysis</span>
+    <h2>Understanding the data</h2>
+    <p class="sub">From domain and dataset description, through preprocessing, to visual analysis and feature selection.</p>
+  </div>
+
+  <!-- 2.1 Domain & Dataset -->
+  <h3 class="subhead"><span>2.1</span> Domain &amp; Dataset Description</h3>
+  <div class="data-grid">
+    <article class="card data-source span2">
+      <p>The project uses the <strong>IBM HR Analytics Employee Attrition &amp; Performance</strong> dataset — a fictional dataset published by IBM Watson Analytics and widely available on <strong>Kaggle</strong>, created to study the drivers of employee attrition.</p>
+      <ul class="facts">
+        <li><span>Domain</span><strong>Human Resources Analytics</strong></li>
+        <li><span>Rows</span><strong>1,470 employees</strong></li>
+        <li><span>Columns</span><strong>35 attributes</strong></li>
+        <li><span>Target</span><strong>Attrition — Yes / No</strong></li>
+        <li><span>Class balance</span><strong>~16% left · ~84% stayed</strong></li>
+        <li><span>Missing values</span><strong>None</strong></li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>Target variable</h3>
+      <p>Each employee is labelled <strong>Attrition = Yes</strong> (left) or <strong>No</strong> (stayed), mapped to <code>1 / 0</code> for modelling.</p>
+    </article>
+    <article class="card">
+      <h3>Feature types</h3>
+      <p>A mix of <strong>numeric</strong> (age, income, tenure) and <strong>categorical</strong> (department, job role, marital status, overtime) attributes describing each employee.</p>
+    </article>
+  </div>
+
+  <!-- 2.2 Data Preprocessing -->
+  <h3 class="subhead"><span>2.2</span> Data Preprocessing</h3>
+  <ol class="pipeline">
+    <li><span class="step-no">1</span><div><h4>Load &amp; inspect</h4><p>Read the CSV into pandas (1,470 × 35); checked shapes, types, and confirmed <strong>zero missing values</strong>.</p></div></li>
+    <li><span class="step-no">2</span><div><h4>Drop irrelevant columns</h4><p>Removed identifier/constant columns — <code>EmployeeNumber</code>, <code>EmployeeCount</code>, <code>StandardHours</code>, <code>Over18</code> — that carry no predictive signal.</p></div></li>
+    <li><span class="step-no">3</span><div><h4>Encode the target</h4><p>Mapped <code>Attrition</code> from Yes/No to <code>1/0</code>.</p></div></li>
+    <li><span class="step-no">4</span><div><h4>Label-encode categoricals</h4><p>Converted text categories to numbers, saving the encoders for consistent prediction later.</p></div></li>
+    <li><span class="step-no">5</span><div><h4>Stratified train/test split</h4><p>80% train / 20% test with <code>random_state=42</code>, preserving the ~16% attrition ratio in both sets.</p></div></li>
+    <li><span class="step-no">6</span><div><h4>Feature scaling</h4><p>Applied <strong>StandardScaler</strong> (fit on train only) for Logistic Regression; tree models use raw features as they're scale-invariant.</p></div></li>
+  </ol>
+
+  <!-- 2.3 Analysis & Visualization -->
+  <h3 class="subhead"><span>2.3</span> Analysis &amp; Visualization</h3>
+  <p class="subnote">Attrition rate within each group — the higher the figure, the higher the risk.</p>
+  <div class="eda-grid">
+    <div class="eda-card hi"><h4>⏰ Overtime</h4><div class="eda-rows"><span>Works OT</span><b>30.5%</b></div><div class="eda-rows"><span>No OT</span><b>10.4%</b></div><p>The strongest single driver.</p></div>
+    <div class="eda-card"><h4>😊 Job Satisfaction</h4><div class="eda-rows"><span>Level 1</span><b>22.8%</b></div><div class="eda-rows"><span>Level 4</span><b>11.3%</b></div></div>
+    <div class="eda-card hi"><h4>💰 Monthly Income</h4><div class="eda-rows"><span>&lt; $3,000</span><b>28.6%</b></div><div class="eda-rows"><span>&gt; $12,000</span><b>5.6%</b></div></div>
+    <div class="eda-card"><h4>🎂 Age</h4><div class="eda-rows"><span>18–25</span><b>35.8%</b></div><div class="eda-rows"><span>Older</span><b>lower</b></div></div>
+    <div class="eda-card hi"><h4>💼 Job Role</h4><div class="eda-rows"><span>Sales Rep</span><b>39.8%</b></div><div class="eda-rows"><span>Lab Tech</span><b>23.9%</b></div></div>
+    <div class="eda-card hi"><h4>📅 Tenure</h4><div class="eda-rows"><span>0–1 yr</span><b>34.9%</b></div><div class="eda-rows"><span>10+ yr</span><b>8.1%</b></div></div>
+    <div class="eda-card"><h4>💍 Marital Status</h4><div class="eda-rows"><span>Single</span><b>25.5%</b></div><div class="eda-rows"><span>Married</span><b>12.5%</b></div></div>
+    <div class="eda-card"><h4>✈️ Business Travel</h4><div class="eda-rows"><span>Frequent</span><b>24.9%</b></div><div class="eda-rows"><span>Non-travel</span><b>8.0%</b></div></div>
+    <div class="eda-card"><h4>📈 Stock Options</h4><div class="eda-rows"><span>Level 0</span><b>24.4%</b></div><div class="eda-rows"><span>Level 1+</span><b>lower</b></div></div>
+    <div class="eda-card"><h4>⚖️ Work-Life Balance</h4><div class="eda-rows"><span>Poor</span><b>31.2%</b></div><div class="eda-rows"><span>Better</span><b>lower</b></div></div>
+    <div class="eda-card"><h4>💡 Job Involvement</h4><div class="eda-rows"><span>Level 1</span><b>33.7%</b></div><div class="eda-rows"><span>Level 4</span><b>9.0%</b></div></div>
+  </div>
+
+  <!-- carousel of charts -->
+  <div class="card carousel" id="carousel" aria-roledescription="carousel" style="margin-top:26px">
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="track">
+        <figure class="slide"><img src="assets/eda_figure1_overview.png" alt="EDA overview — attrition by overtime, department, age, income and satisfaction" loading="lazy" /><figcaption>EDA — dataset overview &amp; attrition patterns</figcaption></figure>
+        <figure class="slide"><img src="assets/eda_figure2_drivers.png" alt="EDA deep dive into key attrition drivers" loading="lazy" /><figcaption>EDA — key attrition drivers, deep dive</figcaption></figure>
+        <figure class="slide"><img src="assets/overtime_income_attrition.png" alt="Attrition by overtime and income" loading="lazy" /><figcaption>Overtime &amp; income vs attrition</figcaption></figure>
+        <figure class="slide"><img src="assets/income_attrition.png" alt="Attrition by monthly income" loading="lazy" /><figcaption>Monthly income vs attrition</figcaption></figure>
+        <figure class="slide"><img src="assets/age_attrition.png" alt="Attrition by age" loading="lazy" /><figcaption>Age vs attrition</figcaption></figure>
+        <figure class="slide"><img src="assets/jobrole_attrition.png" alt="Attrition rate by job role" loading="lazy" /><figcaption>Attrition rate by job role</figcaption></figure>
+        <figure class="slide"><img src="assets/jobsatisfaction_attrition.png" alt="Attrition by job satisfaction" loading="lazy" /><figcaption>Job satisfaction vs attrition</figcaption></figure>
+        <figure class="slide"><img src="assets/marital_attrition.png" alt="Attrition rate by marital status" loading="lazy" /><figcaption>Attrition rate by marital status</figcaption></figure>
+        <figure class="slide"><img src="assets/travel_attrition.png" alt="Attrition rate by business travel" loading="lazy" /><figcaption>Attrition rate by business travel</figcaption></figure>
+        <figure class="slide"><img src="assets/stockoption_attrition.png" alt="Attrition rate by stock option level" loading="lazy" /><figcaption>Attrition rate by stock option level</figcaption></figure>
+        <figure class="slide"><img src="assets/worklife_attrition.png" alt="Attrition rate by work-life balance" loading="lazy" /><figcaption>Attrition rate by work-life balance</figcaption></figure>
+        <figure class="slide"><img src="assets/involvement_attrition.png" alt="Attrition rate by job involvement" loading="lazy" /><figcaption>Attrition rate by job involvement</figcaption></figure>
+        <figure class="slide"><img src="assets/tenure_attrition.png" alt="Attrition by years at company" loading="lazy" /><figcaption>Tenure (years at company) vs attrition</figcaption></figure>
       </div>
-      <button class="carousel-btn prev" id="prev" aria-label="Previous chart">‹</button>
-      <button class="carousel-btn next" id="next" aria-label="Next chart">›</button>
-      <div class="carousel-meta">
-        <span class="carousel-caption" id="carouselCaption">EDA — dataset overview &amp; attrition patterns</span>
-        <span class="carousel-count" id="carouselCount">1 / 18</span>
+    </div>
+    <button class="carousel-btn prev" id="prev" aria-label="Previous chart">‹</button>
+    <button class="carousel-btn next" id="next" aria-label="Next chart">›</button>
+    <div class="carousel-meta">
+      <span class="carousel-caption" id="carouselCaption">EDA — dataset overview &amp; attrition patterns</span>
+      <span class="carousel-count" id="carouselCount">1 / 13</span>
+    </div>
+    <div class="carousel-dots" id="dots"></div>
+    <p class="carousel-hint">Tap any chart to enlarge ⤢</p>
+  </div>
+
+  <!-- 2.4 Feature Selection -->
+  <h3 class="subhead"><span>2.4</span> Feature Selection / Engineering</h3>
+  <div class="data-grid">
+    <article class="card span2">
+      <h3>Most important features</h3>
+      <p>A Random Forest feature-importance analysis ranked the strongest predictors of attrition. These align closely with the EDA findings above.</p>
+      <div class="feat-tags"><span>OverTime</span><span>MonthlyIncome</span><span>Age</span><span>TotalWorkingYears</span><span>YearsAtCompany</span><span>StockOptionLevel</span></div>
+    </article>
+    <figure class="card shot"><img src="assets/feature_importance.png" alt="Random Forest feature importance" loading="lazy" /><figcaption>Feature importance — Random Forest</figcaption></figure>
+  </div>
+</section>
+
+<!-- ░░ MACHINE LEARNING ░░ -->
+<section class="section alt" id="ml">
+  <div class="section-head">
+    <span class="kicker">03 — Machine Learning</span>
+    <h2>Model building &amp; evaluation</h2>
+    <p class="sub">Six models trained and compared; selection driven by the business goal, not raw accuracy.</p>
+  </div>
+
+  <h3 class="subhead"><span>3.1</span> Models Built</h3>
+  <div class="concept-grid">
+    <div class="concept"><h4>Logistic Regression</h4><p>Scaled, interpretable linear baseline.</p></div>
+    <div class="concept"><h4>Decision Tree</h4><p>Pre-pruned (depth 6, leaf 10) to avoid overfitting.</p></div>
+    <div class="concept"><h4>Random Forest</h4><p>200 bagged trees for stable predictions.</p></div>
+    <div class="concept"><h4>Bagging</h4><p>Parallel bootstrap trees — variance ↓.</p></div>
+    <div class="concept"><h4>Boosting</h4><p>Sequential trees correcting errors — bias ↓.</p></div>
+    <div class="concept"><h4>Stacking</h4><p>Meta-model blending the base learners.</p></div>
+  </div>
+
+  <h3 class="subhead"><span>3.2</span> Evaluation &amp; Results</h3>
+  <div class="table-wrap">
+    <table class="results">
+      <thead><tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>ROC-AUC</th></tr></thead>
+      <tbody>
+        <tr class="best"><td>Logistic Regression</td><td>0.874</td><td>0.625</td><td>0.532</td><td>0.575</td><td>0.811</td></tr>
+        <tr class="best"><td>Stacking Ensemble</td><td>0.884</td><td>0.697</td><td>0.489</td><td>0.575</td><td>0.820</td></tr>
+        <tr><td>Gradient Boosting</td><td>0.704</td><td>0.328</td><td>0.809</td><td>0.466</td><td>0.814</td></tr>
+        <tr><td>Random Forest</td><td>0.806</td><td>0.424</td><td>0.596</td><td>0.496</td><td>0.800</td></tr>
+        <tr><td>Bagging Ensemble</td><td>0.772</td><td>0.378</td><td>0.660</td><td>0.481</td><td>0.784</td></tr>
+        <tr><td>Decision Tree</td><td>0.694</td><td>0.269</td><td>0.532</td><td>0.357</td><td>0.696</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ml-figs">
+    <figure class="card shot"><img src="assets/confusion_matrix.png" alt="Confusion matrix of the final model" loading="lazy" /><figcaption>Confusion matrix — final model</figcaption></figure>
+    <figure class="card shot"><img src="assets/model_comparison.png" alt="Model performance comparison" loading="lazy" /><figcaption>Model performance comparison</figcaption></figure>
+  </div>
+
+  <h3 class="subhead"><span>3.3</span> Model Selection</h3>
+  <div class="intro-grid">
+    <div class="card span2">
+      <h3>Why recall, and why these metrics</h3>
+      <p>On an imbalanced problem, <strong>accuracy alone is misleading</strong>. We evaluated every model on accuracy, precision, <strong>recall</strong>, F1 and ROC-AUC. The deciding metric is <strong>recall</strong> — because missing an employee who's about to leave (a false negative) is far costlier than a false alarm. Among the simpler models, <strong>Logistic Regression</strong> gives the best recall-oriented balance and remains the most interpretable; the <strong>Stacking</strong> ensemble tops ROC-AUC and accuracy.</p>
+    </div>
+    <div class="card">
+      <h3>Takeaways</h3>
+      <ul class="check">
+        <li>Boosting catches the most leavers (recall 0.81).</li>
+        <li>Stacking ranks risk best (AUC 0.82).</li>
+        <li>Logistic Regression stays the interpretable choice.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ LEARNING REFLECTIONS ░░ -->
+<section class="section" id="reflections">
+  <div class="section-head">
+    <span class="kicker">04 — Learning Reflections</span>
+    <h2>What this project taught me</h2>
+  </div>
+  <div class="rec-grid">
+    <div class="rec"><span>01</span><p>The <strong>full ML workflow</strong> — from messy data to a usable decision.</p></div>
+    <div class="rec"><span>02</span><p>Why <strong>preprocessing &amp; scaling</strong> matter, and when they don't (trees).</p></div>
+    <div class="rec"><span>03</span><p>How <strong>class imbalance</strong> quietly breaks accuracy and what to do about it.</p></div>
+    <div class="rec"><span>04</span><p>Reading a <strong>confusion matrix</strong> — which errors, not just how many.</p></div>
+    <div class="rec"><span>05</span><p>Choosing the <strong>right metric</strong> (recall) for the real-world cost.</p></div>
+    <div class="rec"><span>06</span><p>That <strong>ensembles</strong> (bagging, boosting, stacking) are distinct models, each with a strength.</p></div>
+  </div>
+
+  <div class="insight-cols" style="margin-top:30px">
+    <div class="insight-block">
+      <h3>Key business insights</h3>
+      <ul class="check">
+        <li><strong>Overtime</strong> is the strongest attrition driver.</li>
+        <li><strong>Low salary</strong> &amp; <strong>young age</strong> raise risk.</li>
+        <li><strong>First-year</strong> employees are most vulnerable.</li>
+        <li><strong>Stock options</strong> improve retention.</li>
+      </ul>
+    </div>
+    <div class="insight-block risk">
+      <h3>Compounding risk</h3>
+      <p>Risk factors <em>multiply</em>: low income <span class="plus">+</span> overtime ≈ <strong>53% attrition</strong>.</p>
+      <div class="risk-profile">
+        <span class="rp-label">Highest-risk profile</span>
+        <div class="rp-tags"><span>Young</span><span>Low paid</span><span>Overtime</span><span>Early tenure</span><span>Low engagement</span></div>
       </div>
-      <div class="carousel-dots" id="dots"></div>
-      <p class="carousel-hint">Tap any chart to enlarge ⤢</p>
     </div>
   </div>
 </section>
@@ -190,332 +307,23 @@
   <span class="lightbox-caption" id="lbCaption"></span>
 </div>
 
-<!-- ░░ DATA & METHODOLOGY ░░ -->
-<section class="section" id="data">
-  <div class="section-head">
-    <span class="kicker">03 — Data &amp; Methodology</span>
-    <h2>Where the data came from &amp; how it was prepared</h2>
-    <p class="sub">Good models start with honest data work. Here's exactly how the dataset was sourced, cleaned, and made model-ready.</p>
-  </div>
-
-  <div class="data-grid">
-    <article class="card data-source span2">
-      <h3>📊 The dataset</h3>
-      <p>
-        The project uses the <strong>IBM HR Analytics Employee Attrition &amp; Performance</strong> dataset —
-        a well-known, openly available dataset published by IBM Watson Analytics and widely distributed via
-        <strong>Kaggle</strong>. It is a <em>fictional</em> dataset created by IBM data scientists to study the
-        factors behind employee attrition, which makes it ideal for learning without privacy concerns.
-      </p>
-      <ul class="facts">
-        <li><span>Rows</span><strong>1,470 employees</strong></li>
-        <li><span>Original columns</span><strong>35 attributes</strong></li>
-        <li><span>Target</span><strong>Attrition — Yes / No</strong></li>
-        <li><span>Class balance</span><strong>~16% left · ~84% stayed</strong></li>
-        <li><span>Missing values</span><strong>None (clean dataset)</strong></li>
-        <li><span>File</span><strong>WA_Fn-UseC_-HR-Employee-Attrition.csv</strong></li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <h3>🎯 The target</h3>
-      <p>Each employee is labelled <strong>Attrition = Yes</strong> (left the company) or <strong>No</strong> (stayed). This was mapped to <code>1 / 0</code> so the models could learn a binary classification: <em>will this person leave?</em></p>
-    </article>
-
-    <article class="card">
-      <h3>⚖️ The imbalance challenge</h3>
-      <p>Only about 1 in 6 employees actually left. This imbalance shaped every later choice — from balanced class weights to a tuned decision threshold — because a naïve model could score 84% accuracy by simply predicting "nobody leaves".</p>
-    </article>
-  </div>
-
-  <h3 class="steps-title">The preprocessing pipeline, step by step</h3>
-  <ol class="pipeline">
-    <li>
-      <span class="step-no">1</span>
-      <div>
-        <h4>Load &amp; inspect</h4>
-        <p>Read the CSV into a pandas DataFrame (1,470 × 35), checked shape, data types, and confirmed there were <strong>zero missing values</strong> — so no imputation was needed.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-no">2</span>
-      <div>
-        <h4>Drop non-informative columns</h4>
-        <p>Removed columns that carry no predictive signal: <code>EmployeeNumber</code>, <code>EmployeeCount</code>, <code>Over18</code>, and <code>StandardHours</code> (all constant or just identifiers), plus low-signal rate fields (<code>MonthlyRate</code>, <code>DailyRate</code>, <code>HourlyRate</code>, <code>PerformanceRating</code>) — keeping <strong>26 meaningful features</strong>.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-no">3</span>
-      <div>
-        <h4>Encode the target</h4>
-        <p>Mapped <code>Attrition</code> from <code>"Yes"/"No"</code> to <code>1/0</code> so it could be used as a numeric classification label.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-no">4</span>
-      <div>
-        <h4>Encode categorical features</h4>
-        <p>Categorical columns (e.g. <code>Department</code>, <code>JobRole</code>, <code>MaritalStatus</code>, <code>OverTime</code>) were converted to numbers with <strong>Label Encoding</strong>, and the fitted encoders were saved so any new employee can be encoded identically at prediction time.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-no">5</span>
-      <div>
-        <h4>Train / test split</h4>
-        <p>Split 80% train / 20% test using <strong>stratified sampling</strong>, which preserves the ~16% attrition ratio in both sets so the test score reflects real-world balance.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-no">6</span>
-      <div>
-        <h4>Feature scaling</h4>
-        <p>Applied <strong>StandardScaler</strong> (mean 0, std 1), <em>fitted only on the training set</em> to avoid leakage. This was essential for Logistic Regression — it cut training from a non-converging 1,000 iterations down to 18 and made coefficients comparable. Tree-based models were fed the raw, unscaled features since they're scale-invariant.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-no">7</span>
-      <div>
-        <h4>Statistics for recommendations</h4>
-        <p>Computed per-feature averages for employees who stayed vs left. These power the system's explanation layer — e.g. <em>"this salary is $2,000 below the average of retained employees."</em></p>
-      </div>
-    </li>
-  </ol>
-</section>
-
-<!-- ░░ EDA FINDINGS ░░ -->
-<section class="section alt" id="eda">
-  <div class="section-head">
-    <span class="kicker">04 — EDA Findings</span>
-    <h2>What the data revealed</h2>
-    <p class="sub">Exploratory analysis surfaced clear, quantifiable drivers of attrition before any model was trained. Each figure is the attrition rate within that group.</p>
-  </div>
-
-  <div class="eda-grid">
-    <div class="eda-card hi">
-      <h4>⏰ Overtime</h4>
-      <div class="eda-rows"><span>Works overtime</span><b>30.5%</b></div>
-      <div class="eda-rows"><span>No overtime</span><b>10.4%</b></div>
-      <p>The strongest single attrition indicator — nearly 3× the risk.</p>
-    </div>
-    <div class="eda-card">
-      <h4>😊 Job Satisfaction</h4>
-      <div class="eda-rows"><span>Level 1 (low)</span><b>22.8%</b></div>
-      <div class="eda-rows"><span>Level 4 (high)</span><b>11.3%</b></div>
-      <p>Attrition falls as satisfaction rises.</p>
-    </div>
-    <div class="eda-card hi">
-      <h4>💰 Monthly Income</h4>
-      <div class="eda-rows"><span>Under $3,000</span><b>28.6%</b></div>
-      <div class="eda-rows"><span>Above $12,000</span><b>5.6%</b></div>
-      <p>Lower pay sharply increases attrition.</p>
-    </div>
-    <div class="eda-card">
-      <h4>🎂 Age</h4>
-      <div class="eda-rows"><span>Age 18–25</span><b>35.8%</b></div>
-      <div class="eda-rows"><span>Older groups</span><b>lower</b></div>
-      <p>Younger employees leave far more often.</p>
-    </div>
-    <div class="eda-card hi">
-      <h4>💼 Job Role</h4>
-      <div class="eda-rows"><span>Sales Representative</span><b>39.8%</b></div>
-      <div class="eda-rows"><span>Lab Technician</span><b>23.9%</b></div>
-      <p>Highest-risk roles in the company.</p>
-    </div>
-    <div class="eda-card hi">
-      <h4>📅 Tenure</h4>
-      <div class="eda-rows"><span>0–1 year</span><b>34.9%</b></div>
-      <div class="eda-rows"><span>10+ years</span><b>8.1%</b></div>
-      <p>New employees are the highest risk.</p>
-    </div>
-    <div class="eda-card">
-      <h4>💍 Marital Status</h4>
-      <div class="eda-rows"><span>Single</span><b>25.5%</b></div>
-      <div class="eda-rows"><span>Married</span><b>12.5%</b></div>
-      <div class="eda-rows"><span>Divorced</span><b>10.1%</b></div>
-    </div>
-    <div class="eda-card">
-      <h4>✈️ Business Travel</h4>
-      <div class="eda-rows"><span>Frequent travel</span><b>24.9%</b></div>
-      <div class="eda-rows"><span>Non-travel</span><b>8.0%</b></div>
-      <p>Frequent travel triples the risk.</p>
-    </div>
-    <div class="eda-card">
-      <h4>📈 Stock Options</h4>
-      <div class="eda-rows"><span>Level 0 (none)</span><b>24.4%</b></div>
-      <div class="eda-rows"><span>Level 1+</span><b>much lower</b></div>
-      <p>Equity meaningfully improves retention.</p>
-    </div>
-    <div class="eda-card">
-      <h4>⚖️ Work-Life Balance</h4>
-      <div class="eda-rows"><span>Poor balance</span><b>31.2%</b></div>
-      <div class="eda-rows"><span>Better balance</span><b>much lower</b></div>
-    </div>
-    <div class="eda-card">
-      <h4>💡 Job Involvement</h4>
-      <div class="eda-rows"><span>Level 1 (low)</span><b>33.7%</b></div>
-      <div class="eda-rows"><span>Level 4 (high)</span><b>9.0%</b></div>
-      <p>Strong negative relationship with attrition.</p>
-    </div>
-    <div class="eda-card feat">
-      <h4>🏆 Top Features</h4>
-      <p>Feature-importance analysis ranked the strongest predictors:</p>
-      <div class="feat-tags"><span>OverTime</span><span>MonthlyIncome</span><span>Age</span><span>TotalWorkingYears</span><span>YearsAtCompany</span><span>StockOptionLevel</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ░░ CONCEPTS ░░ -->
-<section class="section" id="concepts">
-  <div class="section-head">
-    <span class="kicker">05 — What I Learned</span>
-    <h2>Concepts, applied — not just studied</h2>
-    <p class="sub">Each card is a course topic I implemented and reasoned about in the project.</p>
-  </div>
-
-  <div class="concept-grid">
-    <div class="concept"><h4>Data Preprocessing</h4><p>Cleaning, label encoding, train/test split with stratification to preserve class ratios.</p></div>
-    <div class="concept"><h4>Feature Scaling</h4><p>Standardization for distance/gradient models; why trees don't need it. Convergence and interpretability gains measured.</p></div>
-    <div class="concept"><h4>Normalization</h4><p>Min-max vs z-score vs L2 — and why row-normalization is wrong for tabular data.</p></div>
-    <div class="concept"><h4>Logistic Regression</h4><p>A calibrated, interpretable linear baseline — and the project's most precise model.</p></div>
-    <div class="concept"><h4>Decision Trees</h4><p>Pre-pruning with depth and leaf constraints to fight overfitting.</p></div>
-    <div class="concept"><h4>Random Forest</h4><p>Bagged, feature-randomised trees for stable predictions and importance scores.</p></div>
-    <div class="concept"><h4>Bagging</h4><p>Bootstrap aggregation — parallel trees that cut variance.</p></div>
-    <div class="concept"><h4>Boosting</h4><p>Sequential trees that correct prior errors — the best recall, catching ~70% of leavers.</p></div>
-    <div class="concept"><h4>Stacking</h4><p>A meta-model that blends base learners — the best ROC-AUC of the lineup.</p></div>
-    <div class="concept"><h4>Confusion Matrix</h4><p>TN / FP / FN / TP — seeing <em>which</em> errors a model makes, not just how many.</p></div>
-    <div class="concept"><h4>Metrics &amp; F1</h4><p>Precision, recall, F1, ROC-AUC — choosing the metric that fits the business cost.</p></div>
-    <div class="concept"><h4>Threshold &amp; Imbalance</h4><p>Tuning the decision threshold to 0.40 to lift recall and F1 on imbalanced data.</p></div>
-    <div class="concept"><h4>Cross-Validation</h4><p>5-fold GridSearchCV for honest, leakage-free hyperparameter tuning.</p></div>
-    <div class="concept"><h4>Model Interpretation</h4><p>Coefficient × value contributions to explain every individual prediction.</p></div>
-  </div>
-</section>
-
-<!-- ░░ RESULTS ░░ -->
-<section class="section alt" id="results">
-  <div class="section-head">
-    <span class="kicker">06 — Results</span>
-    <h2>Six models, measured honestly</h2>
-    <p class="sub">Evaluated at an imbalance-adjusted 0.40 threshold. F1 and ROC-AUC tell the real story — not accuracy alone.</p>
-  </div>
-
-  <div class="table-wrap">
-    <table class="results">
-      <thead>
-        <tr><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th><th>ROC-AUC</th><th>Strength</th></tr>
-      </thead>
-      <tbody>
-        <tr class="best"><td>Logistic Regression</td><td>0.874</td><td>0.625</td><td>0.532</td><td>0.575</td><td>0.811</td><td>Interpretable &amp; precise</td></tr>
-        <tr class="best"><td>Stacking Ensemble</td><td>0.884</td><td>0.697</td><td>0.489</td><td>0.575</td><td>0.820</td><td>Best AUC &amp; accuracy</td></tr>
-        <tr><td>Gradient Boosting</td><td>0.704</td><td>0.328</td><td>0.809</td><td>0.466</td><td>0.814</td><td>Best recall — catches leavers</td></tr>
-        <tr><td>Random Forest</td><td>0.806</td><td>0.424</td><td>0.596</td><td>0.496</td><td>0.800</td><td>Stable, strong importances</td></tr>
-        <tr><td>Bagging Ensemble</td><td>0.772</td><td>0.378</td><td>0.660</td><td>0.481</td><td>0.784</td><td>Variance reduction</td></tr>
-        <tr><td>Decision Tree</td><td>0.694</td><td>0.269</td><td>0.532</td><td>0.357</td><td>0.696</td><td>Simple &amp; explainable</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="takeaways">
-    <div class="takeaway"><h4>Accuracy isn't enough</h4><p>An 84% "predict everyone stays" baseline looks fine but catches zero leavers. Our model adds <strong>+4.4 real points</strong> while genuinely flagging at-risk staff.</p></div>
-    <div class="takeaway"><h4>Trade-offs are choices</h4><p>Lowering the threshold trades a little accuracy for more recall — the right call when a missed leaver costs far more than a false alarm.</p></div>
-    <div class="takeaway"><h4>The best model is a blend</h4><p>Stacking combined the strengths of all three base learners to top both ROC-AUC and accuracy.</p></div>
-  </div>
-</section>
-
-<!-- ░░ HOW IT WORKS ░░ -->
-<section class="section alt" id="how">
-  <div class="section-head">
-    <span class="kicker">07 — Under the Hood</span>
-    <h2>How a single prediction is made</h2>
-    <p class="sub">Enter one employee — manually or from a CSV — and the system runs the full chain from raw input to a recommended action.</p>
-  </div>
-
-  <div class="flow">
-    <div class="flow-step"><span class="flow-ico">📝</span><h4>1 · Input</h4><p>26 employee attributes are collected — role, income, overtime, satisfaction scores, tenure and more.</p></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><span class="flow-ico">🔢</span><h4>2 · Encode</h4><p>Categorical values are mapped to numbers using the <em>same</em> label encoders fitted during training.</p></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><span class="flow-ico">📐</span><h4>3 · Scale</h4><p>The row is standardised with the saved scaler so it matches what Logistic Regression expects.</p></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><span class="flow-ico">🤖</span><h4>4 · Predict</h4><p>Every model returns a leave/stay probability; the system reports a clear risk verdict.</p></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step"><span class="flow-ico">🔍</span><h4>5 · Explain</h4><p>Coefficient × value shows the top factors pushing this employee's risk up or down.</p></div>
-    <div class="flow-arrow">→</div>
-    <div class="flow-step accent"><span class="flow-ico">🏥</span><h4>6 · Recommend</h4><p>A rule engine prioritises personalised HR actions to retain this specific person.</p></div>
-  </div>
-
-  <div class="metrics-explain">
-    <h3>The metrics, in plain English</h3>
-    <div class="me-grid">
-      <div class="me"><b>Accuracy</b><p>Share of all predictions that were correct — but misleading when 84% never leave.</p></div>
-      <div class="me"><b>Precision</b><p>Of those we flagged as "will leave", how many actually did. High precision = few false alarms.</p></div>
-      <div class="me"><b>Recall</b><p>Of everyone who actually left, how many we caught. The metric that matters most here.</p></div>
-      <div class="me"><b>F1-Score</b><p>The balance between precision and recall — one number for the trade-off.</p></div>
-      <div class="me"><b>ROC-AUC</b><p>How well the model <em>ranks</em> risk regardless of threshold. 0.5 = guessing, 1.0 = perfect.</p></div>
-      <div class="me"><b>Confusion Matrix</b><p>The full breakdown of true/false positives and negatives — which errors, not just how many.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ░░ INSIGHTS & RECOMMENDATIONS ░░ -->
-<section class="section" id="insights">
-  <div class="section-head">
-    <span class="kicker">08 — Insights &amp; Action</span>
-    <h2>From prediction to decision-support</h2>
-    <p class="sub">The real value isn't the score — it's translating risk into specific, fundable HR action.</p>
-  </div>
-
-  <div class="insight-cols">
-    <div class="insight-block">
-      <h3>Key business insights</h3>
-      <ul class="check">
-        <li><strong>Overtime</strong> is the strongest attrition driver.</li>
-        <li><strong>Low salary</strong> significantly increases attrition.</li>
-        <li><strong>Younger employees</strong> are more likely to leave.</li>
-        <li><strong>First-year employees</strong> are the highest risk.</li>
-        <li><strong>Low involvement &amp; satisfaction</strong> raise attrition.</li>
-        <li><strong>Stock options</strong> improve retention.</li>
-      </ul>
-    </div>
-
-    <div class="insight-block risk">
-      <h3>Compounding risk factors</h3>
-      <p>Risk factors don't act alone — they <em>multiply</em>. Low income <span class="plus">+</span> overtime employees reach roughly <strong>53% attrition</strong>, far above any single factor.</p>
-      <div class="risk-profile">
-        <span class="rp-label">Highest-risk profile</span>
-        <div class="rp-tags"><span>Young</span><span>Low paid</span><span>Works overtime</span><span>Early tenure</span><span>Low engagement</span></div>
-      </div>
-    </div>
-  </div>
-
-  <h3 class="rec-title">HR retention recommendations</h3>
-  <div class="rec-grid">
-    <div class="rec"><span>01</span><p>Reduce mandatory <strong>overtime</strong>.</p></div>
-    <div class="rec"><span>02</span><p>Improve <strong>compensation</strong> for lower-paid employees.</p></div>
-    <div class="rec"><span>03</span><p>Strengthen <strong>onboarding</strong> programs.</p></div>
-    <div class="rec"><span>04</span><p>Provide <strong>mentorship</strong> for early-career staff.</p></div>
-    <div class="rec"><span>05</span><p>Increase <strong>employee engagement</strong>.</p></div>
-    <div class="rec"><span>06</span><p>Offer <strong>stock-option incentives</strong> where possible.</p></div>
-  </div>
-</section>
-
 <footer class="footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <span class="brand">SK<span>.</span></span>
-      <p class="muted">Machine learning that earns its decisions.</p>
+      <span class="brand">Attrition<span>.</span></span>
+      <p class="muted">EDA &amp; ML course project · IBM HR Analytics dataset</p>
     </div>
     <nav class="footer-nav">
-      <a href="#about">About</a>
-      <a href="#project">Project</a>
-      <a href="#eda">Findings</a>
-      <a href="#results">Results</a>
-      <a href="#insights">Action</a>
-      <a href="https://github.com/saroshkumar-ops" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="#home">Home</a>
+      <a href="#introduction">Introduction</a>
+      <a href="#eda">EDA</a>
+      <a href="#ml">Machine Learning</a>
+      <a href="#reflections">Reflections</a>
     </nav>
   </div>
   <div class="footer-bottom">
-    <p>Built by Sarosh Kumar · <span id="year"></span></p>
-    <p class="muted">HR Employee Attrition Predictor — IBM HR Analytics dataset.</p>
+    <p>By Sarosh Kumar · <span id="year"></span> · KLE Technological University</p>
+    <p class="muted">Course: Exploratory Data Analysis (24ECSC210)</p>
   </div>
 </footer>
 
